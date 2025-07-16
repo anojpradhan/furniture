@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import Home from "./components/Pages/Home";
 import { FurnitureProvider } from "./Context/FurnitureContext";
 import Cart from "./components/Pages/Cart";
+import Shop from "./components/Pages/Shop";
 
 const App=()=>{
   console.log("Hello there")
@@ -15,6 +16,8 @@ const App=()=>{
       <Route path="/image2" element={<Home/>}></Route>
       <Route path="/image3" element={<Home/>}></Route>
       <Route path="/image4" element={<Home/>}></Route>
+      <Route path="/category/:categoryId" element={<Shop/>} />
+       <Route path="/category/:categoryId/:typeId" element={<Shop/>} />
     </Routes>
     </FurnitureProvider>
     </>

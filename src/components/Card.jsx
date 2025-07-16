@@ -1,4 +1,4 @@
-const Card = ({ name, price, image, description, inStock, handleCart}) => {
+const Card = ({ name, price, image, description, inStock, category, handleCart}) => {
   return (
     <div className="w-xs bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Product Image */}
@@ -15,6 +15,8 @@ const Card = ({ name, price, image, description, inStock, handleCart}) => {
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-lg font-semibold text-gray-800 truncate">{name}</h3>
           <span className="text-lg font-bold text-blue-500">${price}</span>
+          <span className="text-lg font-bold text-blue-500">{category}</span>
+          {/* <span></span> */}
         </div>
 
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>

@@ -1,115 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Dropdown from "./Dropdown";
 import Navbar from "./Navbar";
-const categories = [
-  {
-    title: "Bedroom",
-    types: [
-      "Beds",
-      "Wardrobes",
-      "Nightstands",
-      "Dressers",
-      "Mirrors",
-      "Lamps",
-      "Curtains",
-      "Carpets",
-      "Mattresses",
-      "Closet Organizers",
-      "Wall Art",
-      "Bedding Sets"
-    ]
-  },
-  {
-    title: "Living Room",
-    types: [
-      "Sofas",
-      "Coffee Tables",
-      "TV Units",
-      "Bookshelves",
-      "Recliners",
-      "Accent Chairs",
-      "Lamps",
-      "Wall Art"
-    ]
-  },
-  {
-    title: "Kitchen",
-    types: [
-      "Cabinets",
-      "Dining Tables",
-      "Chairs",
-      "Cookware",
-      "Cutlery",
-      "Storage Racks",
-      "Utensils",
-      "Appliances",
-      "Pantry Organizers",
-      "Bar Stools",
-      "Kitchen Islands"
-    ]
-  },
-  {
-    title: "Office",
-    types: [
-      "Desks",
-      "Chairs",
-      "Bookcases",
-      "Filing Cabinets",
-      "Task Lights",
-      "Monitor Stands"
-    ]
-  },
-  {
-    title: "Bathroom",
-    types: [
-      "Mirrors",
-      "Cabinets",
-      "Towels",
-      "Soap Dispensers",
-      "Toilet Accessories",
-      "Bath Mats",
-      "Shower Curtains",
-      "Shelves",
-      "Laundry Baskets"
-    ]
-  },
-  {
-    title: "Outdoor",
-    types: [
-      "Patio Sets",
-      "Garden Chairs",
-      "Umbrellas",
-      "Grills",
-      "Benches",
-      "Planters",
-      "Hammocks",
-      "Lighting",
-      "Outdoor Rugs",
-      "Fire Pits",
-      "Gazebos",
-      "Coolers",
-      "Bird Feeders"
-    ]
-  },
-  {
-    title: "Kids Room",
-    types: [
-      "Bunk Beds",
-      "Toy Storage",
-      "Study Tables",
-      "Bookshelves",
-      "Wall Stickers",
-      "Rugs",
-      "Chairs",
-      "Night Lamps",
-      "Bean Bags",
-      "Toy Boxes"
-    ]
-  }
-];
+import { FurnitureContext } from "../Context/FurnitureContext";
 
 
 const Header=()=>{
+    const { getCategoryAndTypes } = useContext(FurnitureContext);
+  const categories = getCategoryAndTypes();
 
   const navbarRef= useRef(null);
   const [showStickyDropdown, setShowStickyDropdown]= useState(false);
