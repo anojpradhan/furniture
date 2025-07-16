@@ -4,6 +4,9 @@ import { FurnitureContext } from '../../Context/FurnitureContext';
 import ProductCard from '../ProductCard';
 import Footer from '../Footer';
 import SimilarCard from '../SimilarCard';
+
+
+
 const ProductPage = () => {
   const { id } = useParams();
   const { products } = useContext(FurnitureContext);

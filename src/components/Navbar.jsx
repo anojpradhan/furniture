@@ -45,7 +45,7 @@ const Navbar = () => {
           </span>
         </div>
 
-        <UserRound size={28} />
+        <UserRound size={28} onClick={()=>{navigate('/register')}}/>
       </div>
     </nav>
   );

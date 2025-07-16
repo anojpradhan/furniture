@@ -3,6 +3,8 @@ import Home from "./components/Pages/Home";
 import { FurnitureProvider } from "./Context/FurnitureContext";
 import Cart from "./components/Pages/Cart";
 import Shop from "./components/Pages/Shop";
+import AuthPage from "./components/Pages/AuthPage";
+import ProductPage from "./components/Pages/ProductPage";
 
 const App=()=>{
   console.log("Hello there")
@@ -17,9 +19,14 @@ const App=()=>{
       <Route path="/image3" element={<Home/>}></Route>
       <Route path="/image4" element={<Home/>}></Route>
       <Route path="/category/:categoryId" element={<Shop/>} />
-       <Route path="/category/:categoryId/:typeId" element={<Shop/>} />
+      <Route path="/category/:categoryId/:typeId" element={<Shop/>} />
+      <Route path="/product/:id" element={<ProductPage/>} />
     </Routes>
     </FurnitureProvider>
+    <Routes>
+      <Route path="/login" element={<AuthPage/>} />
+      <Route path="/register" element={<AuthPage />} />
+    </Routes>
     </>
   )
 }
