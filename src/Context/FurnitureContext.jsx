@@ -665,6 +665,24 @@ const initialProducts = [
 export function FurnitureProvider({ children }) {
   const [products, setProducts] = useState(initialProducts);
   const [cart, setCart] = useState([]);
+  const [searchProducts,setSearchProducts]= useState([]);
+
+
+
+
+const handleSearch = (term) => {
+  const lowerTerm = term.toLowerCase();
+
+  const showProducts = products.filter(product => {
+    const inName = product.name.toLowerCase().includes(lowerTerm);
+    const inDescription = product.description.toLowerCase().includes(lowerTerm);
+    const inCategory = product.category.toLowerCase().includes(lowerTerm);
+    const inTags = product.tags.some(tag => tag.toLowerCase().includes(lowerTerm));
+    return inName || inDescription || inCategory || inTags;
+  });
+  setSearchProducts(showProducts);
+};
+
 
   // Add to cart with quantity handling
   const addToCart = (productId) => {
@@ -754,7 +772,9 @@ const getProductsByCategoryAndType = (categoryId, typeId) => {
     cartTotal: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
     getProductsByCategory,
      getProductsByCategoryAndType,
-     getCategoryAndTypes
+     getCategoryAndTypes,
+     handleSearch,
+     searchProducts
   };
 
   return (

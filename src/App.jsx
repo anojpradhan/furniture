@@ -5,11 +5,13 @@ import Cart from "./components/Pages/Cart";
 import Shop from "./components/Pages/Shop";
 import AuthPage from "./components/Pages/AuthPage";
 import ProductPage from "./components/Pages/ProductPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App=()=>{
   console.log("Hello there")
   return(
     <>
+    <ScrollToTop/>
     <FurnitureProvider>
     <Routes>
       <Route path="/" element={<Home/>}></Route>
@@ -18,6 +20,7 @@ const App=()=>{
       <Route path="/image2" element={<Home/>}></Route>
       <Route path="/image3" element={<Home/>}></Route>
       <Route path="/image4" element={<Home/>}></Route>
+      <Route path="/shop" element={<Shop/>}></Route>
       <Route path="/category/:categoryId" element={<Shop/>} />
       <Route path="/category/:categoryId/:typeId" element={<Shop/>} />
       <Route path="/product/:id" element={<ProductPage/>} />
