@@ -33,7 +33,7 @@ const Header=()=>{
       <div ref={navbarRef}>
     <Navbar/>
       </div>
-<div className="flex w-full px-10 border border-gray-300" >
+<div className="flex w-full px-10" >
 
     {categories.map((category,index)=>
       (

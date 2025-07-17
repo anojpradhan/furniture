@@ -21,10 +21,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 border-b bg-white shadow-sm">
+    <nav className="flex items-center justify-between px-6 bg-white shadow-sm">
       {/* Logo */}
       <button
-        className="flex items-center gap-2 p-4 text-blue-600 hover:text-blue-700 transition"
+        className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-700 transition"
         onClick={() => navigate("/")}
       >
         <Building2 size={34} />
@@ -34,18 +34,20 @@ const Navbar = () => {
       </button>
 
       {/* Search */}
-      <div className="flex items-center border rounded-md overflow-hidden">
+      <div className="flex items-center border rounded-xl border-gray-400 overflow-hidden">
         <input
           type="search"
           placeholder="Search..."
-          className="px-4 py-2 h-11 outline-none w-72 text-gray-700"
+          className="px-2 py-1 h-8 outline-none w-md text-gray-700"
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 h-11 flex items-center justify-center transition"
+          className=" opacity-80 text-white px-4 h-8 flex items-center justify-center hover:opacity-100 transition"
           onClick={() => onSearch(inputValue)}
         >
-          <Search size={20} />
+          <div className=" text-gray-700 shadow-2xs hover:text-blue-500">
+          <Search size={22} />
+          </div>
         </button>
       </div>
 
