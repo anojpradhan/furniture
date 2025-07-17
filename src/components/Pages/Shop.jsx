@@ -62,7 +62,7 @@ const Shop = () => {
                 onClick={() =>
                   navigate(`/category/${categoryId}/${createSlug(type)}`)
                 }
-                className="px-5 py-2 border border-blue-500 rounded-md text-blue-600 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                className="px-5 py-2 uppercase border border-blue-500 rounded-md text-blue-600 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                 type="button"
               >
                 {type}

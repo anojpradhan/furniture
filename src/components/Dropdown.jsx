@@ -20,7 +20,7 @@ const Dropdown = ({ lists }) => {
     >
       <button
         type="button"
-        className="w-full px-4 py-3 text-left font-medium hover:bg-blue-600 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+        className="w-full px-4 py-3 text-left font-medium hover:bg-blue-600 uppercase  hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
       >
         {lists.title}
       </button>
@@ -36,7 +36,7 @@ const Dropdown = ({ lists }) => {
             role="menuitem"
             tabIndex={-1}
             key={i}
-            className="px-4 py-2 text-gray-900 hover:bg-blue-600 hover:text-white transition cursor-pointer rounded-md"
+            className="px-4 py-2 text-gray-900 hover:bg-blue-600 uppercase hover:text-white transition cursor-pointer rounded-md"
             onClick={(e) => handleTypeClick(type, e)}
           >
             {type}
