@@ -15,7 +15,7 @@ const Dropdown = ({ lists }) => {
 
   return (
     <div
-      className="relative group inline-block m-2 w-48 border border-gray-300 rounded-md bg-white text-gray-900 cursor-pointer"
+      className="relative group inline-block m-2 w-48 border border-gray-300 rounded-md bg-white text-gray-900 shadow-md cursor-pointer"
       onClick={() => navigate(`/category/${createSlug(lists.title)}`)}
     >
       <button
