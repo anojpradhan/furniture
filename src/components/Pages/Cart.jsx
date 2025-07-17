@@ -120,7 +120,7 @@ const Cart = () => {
         <div className="bg-white p-10 rounded-lg shadow">
           <h2 className="text-xl font-bold mb-4">Order Summary</h2>
           <div className="flex justify-between mb-4">
-            <span>Subtotal</span>
+            <span>Total</span>
             <span>
               {cart[0]?.offerPrice ? "Rs." : "$"}
               {getCartAmount().toFixed(2)}
