@@ -9,6 +9,7 @@ const Cart = () => {
   const [customerDetails, setCustomerDetails] = useState({
     name: '',
     email: '',
+    phone: '',
     address: '',
   });
   const [loading, setLoading] = useState(false);
@@ -25,8 +26,12 @@ const Cart = () => {
 
   const handlePlaceOrder = (e) => {
     e.preventDefault();
-    if (!customerDetails.name || !customerDetails.email || !customerDetails.address) {
+    if (!customerDetails.name || !customerDetails.email || !customerDetails.phone || !customerDetails.address) {
       alert('Please fill in all customer details.');
+      return;
+    }
+    if (customerDetails.phone.length !== 10) {
+      alert('Phone number must be exactly 10 digits.');
       return;
     }
     if (cart.length === 0) {
@@ -37,7 +42,7 @@ const Cart = () => {
     setTimeout(() => {
       alert(`Order placed successfully for ${customerDetails.name}! Total: ${cart[0]?.offerPrice ? 'Rs.' : '$'}${getCartAmount().toFixed(2)}`);
       setLoading(false);
-      setCustomerDetails({ name: '', email: '', address: '' });
+      setCustomerDetails({ name: '', email: '', phone: '', address: '' });
     }, 1500);
   };
 
@@ -45,8 +50,8 @@ const Cart = () => {
     <div >
       <Header />
       <main className="w-full max-w-7xl mx-auto px-6 py-6">
-  <h1 className="text-3xl font-bold mb-8 text-blue-600">
-    Your Cart ({cart.length})
+  <h1 className="text-3xl font- mb-7 text-gray-800  ">
+    Cart Items
   </h1>
 
   {cart.length === 0 ? (
@@ -165,6 +170,31 @@ const Cart = () => {
             </div>
             <div>
               <label
+                htmlFor="phone"
+                className="block text-sm font-medium mb-1"
+              >
+                Phone
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                value={customerDetails.phone}
+                onChange={e => {
+                  // Only allow digits, max 10
+                  let value = e.target.value.replace(/\D/g, '');
+                  if (value.length > 10) value = value.slice(0, 10);
+                  handleInputChange({ target: { name: 'phone', value } });
+                }}
+                inputMode="numeric"
+                pattern="[0-9]{10}"
+                maxLength={10}
+                className="w-full p-2 border rounded-md dark:border-gray-600"
+                required
+              />
+            </div>
+            <div>
+              <label
                 htmlFor="address"
                 className="block text-sm font-medium mb-1"
               >
@@ -179,6 +209,20 @@ const Cart = () => {
                 className="w-full p-2 border rounded-md dark:border-gray-600 resize-none"
                 required
               />
+              <div className="flex space-x-4 p-50px">
+                <button type="button" className="flex items-center text-black py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                  {/* Cash on Delivery icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
+                    <rect x="2" y="7" width="20" height="10" rx="2" fill="#fbbf24" stroke="#f59e42" strokeWidth="1.5"/>
+                    <circle cx="12" cy="12" r="2.5" fill="#fff" stroke="#f59e42" strokeWidth="1.2"/>
+                    <path d="M6 12h.01M18 12h.01" stroke="#f59e42" strokeWidth="1.2" strokeLinecap="round"/>
+                  </svg>
+                  COD
+                </button>
+                <button type="button" className="text-black py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center">
+                  <img src="https://cdn.esewa.com.np/ui/images/esewa_og.png?111" alt="Esewa" className="h-7 w-auto" style={{maxWidth:'80px'}} />
+                </button>
+              </div>
             </div>
             <button
               type="submit"
