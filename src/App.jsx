@@ -5,11 +5,11 @@ import Home from "./components/Pages/Home";
 import Cart from "./components/Pages/Cart";
 import Shop from "./components/Pages/Shop";
 import ProductPage from "./components/Pages/ProductPage";
-import SellerDashboard from "./components/seller/page";
-import ProductList from "./components/seller/product-list/page";
-import OrdersPage from "./components/seller/orders/page";
+import SellerDashboard from "./components/seller/AddProduct";
+import ProductList from "./components/seller/product-list/ProductList";
+import OrdersPage from "./components/seller/orders/OrdersPage";
 import AuthPage from "./components/Pages/AuthPage";
-import AddProduct from "./components/seller/page";
+import AddProduct from "./components/seller/AddProduct";
 // import AuthPage from "./components/Pages/AuthPage"; // Uncomment if you have this
 
 function App() {
