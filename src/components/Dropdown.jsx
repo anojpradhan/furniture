@@ -20,7 +20,7 @@ const Dropdown = ({ lists }) => {
     >
       <button
         type="button"
-        className="w-full px-4 py-3 text-left font-medium hover:bg-blue-600 uppercase  hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+        className="w-full px-4 py-3 text-left font-medium hover:bg-blue-600  hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
       >
         {lists.title}
       </button>
